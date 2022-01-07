@@ -1,24 +1,15 @@
-# global-state-v3
+# 自定义store 实现用户登录，页面鉴权
 
-## Project setup
+## 技术环境
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+vue3+vue-cli+router4
 ```
 
-### Compiles and minifies for production
+### 技术栈
 ```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+自定义store：
+实现细节：使用vue3的reactive和readyonly实现对库状态的封装，
+注：这种封装的状态对象，不能实例中做...操作，会让状态失去响应式，可以使用torefs进行包裹，修复这个缺点，不过需要看你实际需求是什么，可以酌情使用。
+鉴权方面：使用到router的路由守卫，加载数据时，使用loading加载页面，为了防止进入死循环，加入了meta属性，做标记，来区分页面是否进入鉴权流程。
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
